@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>Ceci est la page d'accueil de mon site Symfony !</p>
+
+    <h2>Gestion des utilisateurs</h2>
+    <ul>
+        <li><a href="{{ path('app_users_index') }}">Liste des utilisateurs</a></li>
+        <li><a href="{{ path('app_users_new') }}">Ajouter un utilisateur</a></li>
+    </ul>
+{% endblock %}

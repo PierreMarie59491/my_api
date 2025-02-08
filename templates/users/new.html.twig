@@ -1,11 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Users{% endblock %}
+{% block title %}Nouvel utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Create new Users</h1>
+    <h1>Créer un nouvel utilisateur</h1>
 
-    {{ include('users/_form.html.twig') }}
+    {% for message in app.flashes('error') %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
 
-    <a href="{{ path('app_users_index') }}">back to list</a>
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+{{ form_start(form) }}
+    {{ form_row(form.Pseudo) }}
+    {{ form_row(form.Nom) }}
+    {{ form_row(form.Prenom) }}
+    <button type="submit">Créer</button>
+{{ form_end(form) }}
+
+
+    <a href="{{ path('app_users_index') }}">Retour à la liste</a>
 {% endblock %}
